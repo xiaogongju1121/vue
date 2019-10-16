@@ -1,0 +1,26 @@
+@font-face {
+	font-family: FontAwesome;
+	src: url(fontawesome-webfont-1TZjAYIw.woff2) format("woff2");
+	font-weight: 400;
+	font-style: normal
+}
+
+.my_icon {
+	font-style: normal !important;
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	width: 1.28571429em;
+	text-align: center;
+}
+
+.fa-user:before {
+	content: "\F007";
+}
+
+.fa-lock:before {
+	content: "\F023";
+}
