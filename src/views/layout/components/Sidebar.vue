@@ -1,51 +1,19 @@
 <template>
 	<div>
-		<el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+		<el-aside width="200px">
 			<el-menu :default-openeds="['1', '3']">
 				<el-submenu index="1">
-					<template slot="title"><i class="el-icon-message"></i>导航一</template>
+					<template slot="title"><i class="el-icon-message"></i>首页</template>
 					<el-menu-item-group>
-						<template slot="title">分组一</template>
-						<el-menu-item index="1-1" @click='go("/home")'>home</el-menu-item>
-						<el-menu-item index="1-2" @click='go("/userManage")'>userManage</el-menu-item>
+						<el-menu-item index="1" @click='go("/home/index")'>首页</el-menu-item>
 					</el-menu-item-group>
-					<el-menu-item-group title="分组2">
-						<el-menu-item index="1-3">选项3</el-menu-item>
-					</el-menu-item-group>
-					<el-submenu index="1-4">
-						<template slot="title">选项4</template>
-						<el-menu-item index="1-4-1">选项4-1</el-menu-item>
-					</el-submenu>
 				</el-submenu>
 				<el-submenu index="2">
-					<template slot="title"><i class="el-icon-menu"></i>导航二</template>
+					<template slot="title"><i class="el-icon-message"></i>系统管理</template>
 					<el-menu-item-group>
-						<template slot="title">分组一</template>
-						<el-menu-item index="2-1">选项1</el-menu-item>
-						<el-menu-item index="2-2">选项2</el-menu-item>
+						<el-menu-item index="2-1" @click='go("/userManage/index")'>用户管理</el-menu-item>
+						<el-menu-item index="2-2" @click='go("/roleManage/index")'>角色管理</el-menu-item>
 					</el-menu-item-group>
-					<el-menu-item-group title="分组2">
-						<el-menu-item index="2-3">选项3</el-menu-item>
-					</el-menu-item-group>
-					<el-submenu index="2-4">
-						<template slot="title">选项4</template>
-						<el-menu-item index="2-4-1">选项4-1</el-menu-item>
-					</el-submenu>
-				</el-submenu>
-				<el-submenu index="3">
-					<template slot="title"><i class="el-icon-setting"></i>导航三</template>
-					<el-menu-item-group>
-						<template slot="title">分组一</template>
-						<el-menu-item index="3-1">选项1</el-menu-item>
-						<el-menu-item index="3-2">选项2</el-menu-item>
-					</el-menu-item-group>
-					<el-menu-item-group title="分组2">
-						<el-menu-item index="3-3">选项3</el-menu-item>
-					</el-menu-item-group>
-					<el-submenu index="3-4">
-						<template slot="title">选项4</template>
-						<el-menu-item index="3-4-1">选项4-1</el-menu-item>
-					</el-submenu>
 				</el-submenu>
 			</el-menu>
 		</el-aside>
@@ -55,10 +23,11 @@
 <script>
 	export default{
 		data(){
-			
+			return {}
 		},
 		methods:{
 			go(url){
+				!(url == this.$route.path) &&
 				this.$router.push({ //核心语句
 					path: url, //跳转的路径
 				})
@@ -70,5 +39,22 @@
 <style>
 	.el-aside {
 		color: #333;
+		background: #303133;
+	}
+	.sidebar-container{
+		height: 100%;
+		background: #303133;
+	}
+	.el-menu {
+		background: #606266;
+	}
+	.el-menu *{
+		color: whitesmoke !important;
+	}
+	.el-submenu__title:hover,.el-submenu__title:hover i{
+		color: #606266 !important;
+	}
+	.el-menu-item:focus, .el-menu-item:hover{
+		color: #606266 !important;
 	}
 </style>

@@ -19,7 +19,7 @@ export default new Router({
 				path: 'index',
 				component: () =>
 					import('@/views/home/index'),
-				name: 'Dashboard'
+				name: 'home'
 			}]
 		},
 		{
@@ -31,6 +31,17 @@ export default new Router({
 				component: () =>
 					import('@/views/userManage/index'),
 				name: 'userManage'
+			}]
+		},
+		{
+			path: '/roleManage',
+			component: Layout,
+			redirect: 'roleManage/index',
+			children: [{
+				path: 'index',
+				component: () =>
+					import('@/views/roleManage/index'),
+				name: 'roleManage'
 			}]
 		}
 	]

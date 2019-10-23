@@ -19,6 +19,8 @@
 </template>
 
 <script>
+	import api from '@/api/api.js'
+	import { MessageBox } from 'element-ui';
 	export default {
 		name: 'LoginForm',
 		data() {
@@ -31,8 +33,15 @@
 		},
 		methods: {
 			login() {
-				this.$router.push({ //核心语句
-					path: '/home', //跳转的路径
+				api.myAjax("/login/login", this.user).then((res) => {
+					if(res.code == 200) {
+						this.$store.commit('setUserInfo', this.user);
+						this.$router.push({ //核心语句
+							path: '/home', //跳转的路径
+						})
+					} else {
+						MessageBox.alert(res.msg, '提示')
+					}
 				})
 			}
 		},
